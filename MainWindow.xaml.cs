@@ -7,9 +7,11 @@ namespace PetrolStationNetwork
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
         }
     }
 }
