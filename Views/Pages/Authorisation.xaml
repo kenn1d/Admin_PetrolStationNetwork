@@ -31,7 +31,7 @@
                          FontSize="14"
                          Foreground="#1565C0"
                          Margin="0,0,0,5"/>
-                <TextBox Name="LoginBox"
+                <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"
                          Background="White"
                          BorderBrush="#64B5F6"
                          BorderThickness="1"
@@ -59,6 +59,7 @@
 
             <Button
                     Command="{Binding LogIn}"
+                    CommandParameter="{Binding ElementName=PasswordBox}"
                     Grid.Row="3"
                     Content="Войти"
                     Background="#2196F3"

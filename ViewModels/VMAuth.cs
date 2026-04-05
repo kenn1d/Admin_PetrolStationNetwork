@@ -39,19 +39,25 @@ namespace PetrolStationNetwork.ViewModels
             this.Suppliers = new ObservableCollection<Models.Supplier>((IEnumerable<Models.Supplier>)dataBase.Suppliers.ToList());
             this.Staff = new ObservableCollection<Models.Staff>((IEnumerable<Models.Staff>)dataBase.Staff.ToList());
 
-            LogIn = new RelayCommand(() =>
+            LogIn = new RelayCommand<object>((param) =>
             {
-                var findingUser = Users.FirstOrDefault(u => u.Login == login && u.Password == password);
+                // Получаем пароль из PasswordBox
+                var passwordBox = param as System.Windows.Controls.PasswordBox;
+                Password = passwordBox.Password;
+
+                // Ищем пользователя в базе данных
+                var findingUser = users.FirstOrDefault(u => u.Login == login && u.Password == password);
                 if (findingUser != null)
                 {
-                    var findUserRoleSupplier = this.Suppliers.FirstOrDefault(s => s.user_id == findingUser.id);
+                    // Если пользователь найден, определяем его роль и загружаем сессию
+                    var findUserRoleSupplier = suppliers.FirstOrDefault(s => s.user_id == findingUser.id);
                     if (findUserRoleSupplier != null)
                     {
                         UserSession.LoadUser(findingUser.Full_name, findingUser.Tel_number, "Supplier", findUserRoleSupplier.Company_name);
                     }
-                    else
+                    else // Если пользователь не является поставщиком, проверяем, является ли он сотрудником
                     {
-                        var findUserRoleStaff = this.Staff.FirstOrDefault(s => s.user_id == findingUser.id);
+                        var findUserRoleStaff = staff.FirstOrDefault(s => s.user_id == findingUser.id);
                         if (findUserRoleStaff != null)
                         {
                             UserSession.LoadUser(findingUser.Full_name, findingUser.Tel_number, findUserRoleStaff.Role);
