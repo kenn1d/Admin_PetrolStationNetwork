@@ -12,6 +12,8 @@ namespace PetrolStationNetwork
         {
             InitializeComponent();
             init = this;
+            DataContext = new ViewModels.VMPages();
+            frame.Navigate(new Views.Pages.Authorisation());
         }
     }
 }
