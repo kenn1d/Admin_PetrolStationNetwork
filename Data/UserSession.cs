@@ -1,4 +1,6 @@
-﻿namespace PetrolStationNetwork.Data
+﻿using System.Windows;
+
+namespace PetrolStationNetwork.Data
 {
     public class UserSession
     {
@@ -14,6 +16,8 @@
             if (Role == "Supplier")
                 UserSession.CompanyName = CompanyName;
             UserSession.Role = Role;
+
+            MainWindow.init.frame.Navigate(new Views.Pages.Main(Full_name));
         }
     }
 }

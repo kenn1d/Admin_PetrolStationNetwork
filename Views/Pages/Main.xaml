@@ -8,7 +8,159 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Label Grid.Row="0"
+           Content="{Binding UserFIO}"
+           FontSize="28"
+           FontWeight="SemiBold"
+           Foreground="#1565C0"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top" Width="780"/>
+        <Grid x:Name="buttons" HorizontalAlignment="Center" VerticalAlignment="Top" Width="780" Height="385" Margin="0,55,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="Deliveries"
+                Command="{Binding Deliveries}"
+                Content="Создать поставку"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,10,10,340" Grid.Column="0" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="DeliveryItems"
+                Command="{Binding DeliveryItems}"
+                Content="Элементы поставок"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,55,10,295" Grid.Column="0" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Products"
+                Command="{Binding Products}"
+                Content="Продукты"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,100,10,250" Grid.Column="0" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="WarehouseItems"
+                Command="{Binding WarehouseItems}"
+                Content="Продукция на складе"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,10,10,340" Grid.Column="1" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="ShopItems"
+                Command="{Binding ShopItems}"
+                Content="Продукция в зале"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,55,10,295" Grid.Column="1" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="Users"
+                Command="{Binding Users}"
+                Content="Все пользователи"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,10,10,340" Grid.Column="2" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Suppliers"
+                Command="{Binding Suppliers}"
+                Content="Поставщики"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,55,10,295" Grid.Column="2" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Staff"
+                Command="{Binding Staff}"
+                Content="Персонал"
+                Background="#2196F3"
+                Foreground="White"
+                BorderThickness="0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Padding="0"
+                Cursor="Hand"
+                HorizontalContentAlignment="Center" Margin="10,100,10,250" Grid.Column="2" IsEnabled="False">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
     </Grid>
 </Page>

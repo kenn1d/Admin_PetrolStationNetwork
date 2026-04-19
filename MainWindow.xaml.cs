@@ -7,13 +7,12 @@ namespace PetrolStationNetwork
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow init;
+        public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
             init = this;
             DataContext = new ViewModels.VMPages();
-            frame.Navigate(new Views.Pages.Authorisation());
         }
     }
 }

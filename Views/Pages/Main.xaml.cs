@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using PetrolStationNetwork.Data;
+using PetrolStationNetwork.ViewModels;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PetrolStationNetwork.Views.Pages
 {
@@ -20,9 +9,33 @@ namespace PetrolStationNetwork.Views.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        public Main(string userFIO)
         {
             InitializeComponent();
+            if (UserSession.Role == "Supplier")
+            {
+                Deliveries.IsEnabled = true;
+                DeliveryItems.IsEnabled = true;
+                Products.IsEnabled = true;
+            }
+            else if (UserSession.Role == "Worker")
+            {
+                DeliveryItems.IsEnabled = true;
+                WarehouseItems.IsEnabled = true;
+                ShopItems.IsEnabled = true;
+            }
+            else
+            {
+                Deliveries.IsEnabled = true;
+                DeliveryItems.IsEnabled = true;
+                Products.IsEnabled = true;
+                WarehouseItems.IsEnabled = true;
+                ShopItems.IsEnabled = true;
+                Users.IsEnabled = true;
+                Suppliers.IsEnabled = true;
+                Staff.IsEnabled = true;
+            }
+            DataContext = new VMMain(userFIO);
         }
     }
 }
