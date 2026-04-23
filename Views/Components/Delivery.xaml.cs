@@ -9,7 +9,6 @@ namespace PetrolStationNetwork.Views.Components
     {
         public Delivery()
         {
-            //TODO: Переименовать поля в соответствии с БД, а так же поменять директории классов представлений
             InitializeComponent();
         }
     }

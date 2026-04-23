@@ -5,91 +5,76 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PetrolStationNetwork.Views.Components"
              mc:Ignorable="d" >
-    <Grid Margin="10" Background="White" Width="700" Height="50">
+
+    <Grid Margin="5" Background="White">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="/Images/icon-black.png" Margin="5,5,5,5" Grid.Column="0" Stretch="Uniform"/>
-
-        <StackPanel Grid.Column="1" Margin="5,5,5,5">
-            <Label Content="Поставщик"
-           FontWeight="Bold"
-           FontSize="10"
-           VerticalAlignment="Top"
-           HorizontalAlignment="Left"
-           Padding="0,2,0,0"/>
-            <TextBox Text="{Binding SupplierId}"
-           FontSize="10"
-           VerticalAlignment="Top"
-           HorizontalAlignment="Left"
-           FontStyle="Italic"
-           Padding="0,0,0,2" Width="100" IsEnabled="False"/>
-        </StackPanel>
+        <Image Source="/Images/icon-black.png" Margin="0" Grid.Column="1" Stretch="Uniform"/>
 
         <StackPanel Grid.Column="2" Margin="5,5,5,5">
-            <Label Content="Серия и номер"
+            <Label Content="Поставщик"
            FontWeight="Bold"
-           FontSize="10"
+           FontSize="14"
            VerticalAlignment="Top"
            HorizontalAlignment="Left"
            Padding="0,2,0,0"/>
-            <TextBox Text="{Binding SerialNumber}"
-           FontSize="10"
+            <Label Content="{Binding Supplier_id}" Height="20"
+           FontSize="14"
+           VerticalAlignment="Top"
            HorizontalAlignment="Left"
            FontStyle="Italic"
-           Padding="0,0,0,2" Width="100" IsEnabled="False"/>
+           Padding="0,0,0,2" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Column="3" Margin="5,5,5,5">
-            <Label Content="Дата"
+            <Label Content="Серия и номер"
            FontWeight="Bold"
-           FontSize="10"
+           FontSize="14"
            VerticalAlignment="Top"
            HorizontalAlignment="Left"
            Padding="0,2,0,0"/>
-            <TextBox Text="{Binding Date}"
-           FontSize="10"
-           VerticalAlignment="Top"
+            <Label Content="{Binding Serial_number}" Height="20"
+           FontSize="14"
            HorizontalAlignment="Left"
            FontStyle="Italic"
-           Padding="0,0,0,2" Width="100" IsEnabled="False"/>
-        </StackPanel>
-        
-        <StackPanel Grid.Column="4" Margin="5,5,5,5">
-            <Label Content="Статус"
-           FontWeight="Bold"
-           FontSize="10"
-           VerticalAlignment="Top"
-           HorizontalAlignment="Left"
-           Padding="0,2,0,0"/>
-            <TextBox Text="{Binding Status}"
-           FontSize="10"
-           VerticalAlignment="Top"
-           HorizontalAlignment="Left"
-           FontStyle="Italic"
-           Padding="0,0,0,2" Width="100" IsEnabled="False"/>
+           Padding="0,0,0,2" IsEnabled="False"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="5" Margin="5">
-            <Button Content="Изменить"
-            Command="{Binding OnUpdate}"
-            Height="19"
-            VerticalAlignment="Top"
-            Background="White"
-            BorderBrush="White" 
-            Foreground="#FF009CFF"/>
-            <Button Content="Удалить"
-            Command="{Binding OnDelete}"
-            Height="19"
-            Background="White"
-            BorderBrush="White" 
-            Foreground="Red"/>
+        <StackPanel Grid.Column="4" Margin="5,5,5,5">
+            <Label Content="Дата"
+           FontWeight="Bold"
+           FontSize="14"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Padding="0,2,0,0"/>
+            <Label Content="{Binding Date}" Height="20"
+           FontSize="14"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           FontStyle="Italic"
+           Padding="0,0,0,2" IsEnabled="False"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="5" Margin="5,5,5,5">
+            <Label Content="Статус"
+           FontWeight="Bold"
+           FontSize="14"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Padding="0,2,0,0"/>
+            <Label Content="{Binding Status}" Height="20"
+           FontSize="14"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           FontStyle="Italic"
+           Padding="0,0,0,2" IsEnabled="False"/>
         </StackPanel>
     </Grid>
 </UserControl>

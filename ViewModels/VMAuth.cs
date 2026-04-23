@@ -35,9 +35,9 @@ namespace PetrolStationNetwork.ViewModels
             dataBase.Suppliers.Load();
             dataBase.Staff.Load();
 
-            this.Users = new ObservableCollection<Models.User>((IEnumerable<Models.User>)dataBase.Users.ToList());
-            this.Suppliers = new ObservableCollection<Models.Supplier>((IEnumerable<Models.Supplier>)dataBase.Suppliers.ToList());
-            this.Staff = new ObservableCollection<Models.Staff>((IEnumerable<Models.Staff>)dataBase.Staff.ToList());
+            this.Users = new ObservableCollection<Models.User>(dataBase.Users.ToList());
+            this.Suppliers = new ObservableCollection<Models.Supplier>(dataBase.Suppliers.ToList());
+            this.Staff = new ObservableCollection<Models.Staff>(dataBase.Staff.ToList());
 
             LogIn = new RelayCommand<object>((param) =>
             {
@@ -53,14 +53,14 @@ namespace PetrolStationNetwork.ViewModels
                     var findUserRoleSupplier = suppliers.FirstOrDefault(s => s.user_id == findingUser.id);
                     if (findUserRoleSupplier != null)
                     {
-                        UserSession.LoadUser(findingUser.Full_name, findingUser.Tel_number, "Supplier", findUserRoleSupplier.Company_name);
+                        UserSession.LoadUser(findingUser.id, findingUser.Full_name, findingUser.Tel_number, "Supplier", findUserRoleSupplier.Company_name);
                     }
                     else // Если пользователь не является поставщиком, проверяем, является ли он сотрудником
                     {
                         var findUserRoleStaff = staff.FirstOrDefault(s => s.user_id == findingUser.id);
                         if (findUserRoleStaff != null)
                         {
-                            UserSession.LoadUser(findingUser.Full_name, findingUser.Tel_number, findUserRoleStaff.Role);
+                            UserSession.LoadUser(findingUser.id, findingUser.Full_name, findingUser.Tel_number, findUserRoleStaff.Role);
                         }
                     }
                 }

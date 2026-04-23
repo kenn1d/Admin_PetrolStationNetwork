@@ -9,9 +9,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\icon-black.png" />
+    <None Remove="images\inventory.png" />
+    <None Remove="images\leader.png" />
+    <None Remove="images\sale.png" />
+    <None Remove="images\supplier.jpg" />
+    <None Remove="images\warehouse.png" />
+    <None Remove="images\worker.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.25" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\icon-black.png" />
+    <Resource Include="images\inventory.png" />
+    <Resource Include="images\leader.png" />
+    <Resource Include="images\sale.png" />
+    <Resource Include="images\supplier.jpg" />
+    <Resource Include="images\warehouse.png" />
+    <Resource Include="images\worker.png" />
   </ItemGroup>
 
 </Project>
