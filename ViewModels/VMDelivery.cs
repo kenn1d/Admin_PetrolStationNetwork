@@ -50,7 +50,7 @@ namespace PetrolStationNetwork.ViewModels
 
             if (UserSession.Role == "leader") Delete = true;
             Add = new RelayCommand(() => {
-                if (selectedItem == null)
+                if (UserSession.Role == "Supplier" && selectedItem == null)
                 {
                     Delivery newDelivery = new Delivery()
                     {
@@ -62,13 +62,14 @@ namespace PetrolStationNetwork.ViewModels
                     dataBase.Deliveries.Add(newDelivery);
                     deliveries.Add(newDelivery);
                 }
-                else
+                else if (selectedItem != null)
                 {
                     selectedItem.Serial_number = serialNumber;
                     selectedItem.Status = selectedStatus;
                     SelectedItem = null;
                     BthAddContent = "Добавить";
                 }
+                else MessageBox.Show("Запись не выбрана или нет доступа.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
                 dataBase.SaveChanges();
             });
 
