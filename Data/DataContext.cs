@@ -9,6 +9,8 @@ namespace PetrolStationNetwork.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Staff> Staff { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
+        public DbSet<DeliveryItem> DeliveryItems { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public DataContext()
         {

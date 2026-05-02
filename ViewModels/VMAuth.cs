@@ -27,9 +27,11 @@ namespace PetrolStationNetwork.ViewModels
         [ObservableProperty]
         private string password;
 
+        //TODO: Реализовать кнопку выхода из аккаунта
+
         public ICommand LogIn { get; }
 
-        public VMAuth()
+        public VMAuth() //TODO: Обработать ошибку от сервера
         {
             dataBase.Users.Load();
             dataBase.Suppliers.Load();

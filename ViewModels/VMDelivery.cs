@@ -39,6 +39,7 @@ namespace PetrolStationNetwork.ViewModels
 
         //TODO: Реализовать редактирование только своей записи
         //TODO: Реализовать проверку на дублирование
+        //TODO: При установке статуса "Принята" - скопировать поставку в таблицу склада
         public VMDelivery()
         {
             dataBase.Deliveries.Load();
@@ -50,17 +51,25 @@ namespace PetrolStationNetwork.ViewModels
 
             if (UserSession.Role == "leader") Delete = true;
             Add = new RelayCommand(() => {
-                if (UserSession.Role == "Supplier" && selectedItem == null)
+                if (UserSession.Role == "Supplier" && selectedItem == null) 
                 {
-                    Delivery newDelivery = new Delivery()
+                    if (serialNumber != null)
                     {
-                        Supplier_id = UserSession.Id,
-                        Serial_number = serialNumber,
-                        Date = DateTime.Now,
-                        Status = "В ожидании"
-                    };
-                    dataBase.Deliveries.Add(newDelivery);
-                    deliveries.Add(newDelivery);
+                        Delivery newDelivery = new Delivery()
+                        {
+                            Supplier_id = UserSession.Id,
+                            Serial_number = serialNumber,
+                            Date = DateTime.Now,
+                            Status = "В ожидании"
+                        };
+                        dataBase.Deliveries.Add(newDelivery);
+                        deliveries.Add(newDelivery);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Проверьте заполненность всех полей", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                        return;
+                    }
                 }
                 else if (selectedItem != null)
                 {
@@ -69,7 +78,7 @@ namespace PetrolStationNetwork.ViewModels
                     SelectedItem = null;
                     BthAddContent = "Добавить";
                 }
-                else MessageBox.Show("Запись не выбрана или нет доступа.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                else MessageBox.Show("Запись не выбрана или нет доступа", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
                 dataBase.SaveChanges();
             });
 
@@ -83,7 +92,7 @@ namespace PetrolStationNetwork.ViewModels
                     SelectedItem = null;
                     BthAddContent = "Добавить";
                 }
-                else MessageBox.Show("Выберите запись для удаления.", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                else MessageBox.Show("Выберите запись для удаления", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Stop);
             });
 
             Exit = new RelayCommand(() => {
