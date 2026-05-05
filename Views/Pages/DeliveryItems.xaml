@@ -58,21 +58,20 @@
 
         <Grid Grid.Column="1" Margin="0,50,0,10">
             <Label Foreground="#1565C0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Поставка:" Margin="10,0,0,0" />
-            <ComboBox x:Name="serialNumber" BorderBrush="#64B5F6" SelectedValue="{Binding SerialNumber, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding DeliveriesActive}" 
-                      VerticalAlignment="Top" Margin="10,26,10,0" Height="26" SelectedIndex="0" SelectedValuePath="" DisplayMemberPath="Serial_number"/>
+            <ComboBox IsEnabled="False" x:Name="deliveryPicker" BorderBrush="#64B5F6" SelectedValue="{Binding SelectedDelivery, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding DeliveriesActive}" 
+                      VerticalAlignment="Top" Margin="10,26,10,0" Height="26" SelectedValuePath="id" DisplayMemberPath="Serial_number"/>
 
             <Label Foreground="#1565C0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Продукт:" Margin="10,60,0,0" />
-            <ComboBox x:Name="status" BorderBrush="#64B5F6" VerticalAlignment="Top" 
-                  Margin="10,86,10,0" Height="26" SelectedValue="{Binding SelectedProduct, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Products}" 
-                      SelectedIndex="0" DisplayMemberPath="name"/>
+            <ComboBox IsEnabled="False" x:Name="productPicker" BorderBrush="#64B5F6" VerticalAlignment="Top" Margin="10,86,10,0" Height="26" 
+                      SelectedValue="{Binding SelectedProduct, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{Binding Products}" SelectedValuePath="id" DisplayMemberPath="Name"/>
 
             <Label Foreground="#1565C0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Количество:" Margin="10,120,0,0" />
-            <TextBox x:Name="count" BorderBrush="#64B5F6" VerticalAlignment="Top" 
-                  Margin="10,146,10,0" Height="26" IsEnabled="False" Text="{Binding ProductsCount, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox IsEnabled="False" x:Name="count" BorderBrush="#64B5F6" VerticalAlignment="Top" 
+                  Margin="10,146,10,0" Height="26" Text="{Binding ProductsCount, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Label Foreground="#1565C0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Срок годности:" Margin="10,178,0,0" />
-            <TextBox x:Name="expDate" BorderBrush="#64B5F6" VerticalAlignment="Top" 
-                  Margin="10,204,10,0" Height="26" IsEnabled="False" Text="{Binding ExpDate, UpdateSourceTrigger=PropertyChanged}"/>
+            <DatePicker IsEnabled="False" x:Name="expDate" BorderBrush="#64B5F6" VerticalAlignment="Top" 
+                  Margin="10,204,10,0" Height="26" SelectedDate="{Binding ExpDate, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button x:Name="bthAdd"
                 Command="{Binding Add}"

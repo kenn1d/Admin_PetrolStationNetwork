@@ -23,8 +23,8 @@
        VerticalAlignment="Top"
        HorizontalAlignment="Left"
        Padding="0,2,0,0"/>
-            <Label Content="{Binding DeliverySerial}" Height="20"
-       FontSize="10"
+            <Label Content="{Binding SerialNumber}" Height="20"
+       FontSize="14"
        VerticalAlignment="Top"
        HorizontalAlignment="Left"
        FontStyle="Italic"
@@ -38,8 +38,8 @@
        VerticalAlignment="Top"
        HorizontalAlignment="Left"
        Padding="0,2,0,0"/>
-            <Label Content="{Binding ProductId}" Height="20"
-       FontSize="10"
+            <Label Content="{Binding ProductName}" Height="20"
+       FontSize="14"
        HorizontalAlignment="Left"
        FontStyle="Italic"
        Padding="0,0,0,2" Width="100" IsEnabled="False"/>
@@ -53,7 +53,7 @@
        HorizontalAlignment="Left"
        Padding="0,2,0,0"/>
             <Label Content="{Binding Count}" Height="20"
-       FontSize="10"
+       FontSize="14"
        VerticalAlignment="Top"
        HorizontalAlignment="Left"
        FontStyle="Italic"
@@ -67,8 +67,8 @@
        VerticalAlignment="Top"
        HorizontalAlignment="Left"
        Padding="0,2,0,0"/>
-            <Label Content="{Binding ExpDate}" Height="20"
-       FontSize="10"
+            <Label Content="{Binding Exp_date}" Height="20"
+       FontSize="14"
        VerticalAlignment="Top"
        HorizontalAlignment="Left"
        FontStyle="Italic"

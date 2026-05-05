@@ -1,4 +1,5 @@
-﻿using PetrolStationNetwork.ViewModels;
+﻿using PetrolStationNetwork.Data;
+using PetrolStationNetwork.ViewModels;
 using System.Windows.Controls;
 
 namespace PetrolStationNetwork.Views.Pages
@@ -12,6 +13,7 @@ namespace PetrolStationNetwork.Views.Pages
         {
             InitializeComponent();
             DataContext = new VMDeliveryItems();
+            if (UserSession.Role == "Supplier") { bthDelete.IsEnabled = true; deliveryPicker.IsEnabled = true; productPicker.IsEnabled = true; count.IsEnabled = true; expDate.IsEnabled = true; }
         }
     }
 }

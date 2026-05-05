@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetrolStationNetwork.Models
 {
@@ -17,5 +18,16 @@ namespace PetrolStationNetwork.Models
 
         [ObservableProperty]
         private DateTime exp_date;
+
+        public virtual Delivery Delivery { get; set; }
+
+        public virtual Product Product { get; set; }
+
+
+        [NotMapped]
+        public string SerialNumber => Delivery.Serial_number;
+
+        [NotMapped]
+        public string ProductName => Product.Name;
     }
 }

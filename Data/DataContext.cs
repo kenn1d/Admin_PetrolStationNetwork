@@ -54,6 +54,18 @@ namespace PetrolStationNetwork.Data
                 .HasConversion<string>()
                 .HasColumnName("role");
 
+            // Настройка связи Delivery И DeliveryItem для получения серийного номера поставки на основе id
+            modelBuilder.Entity<DeliveryItem>()
+                .HasOne(di => di.Delivery)
+                .WithMany()
+                .HasForeignKey(di => di.Delivery_id);
+            // Настройка связи Product И DeliveryItem для получения наименования продукта на основе id
+            modelBuilder.Entity<DeliveryItem>()
+                .HasOne(di => di.Product)
+                .WithMany()
+                .HasForeignKey(di => di.Product_id);
+                
+
             base.OnModelCreating(modelBuilder);
         }
     }
