@@ -6,7 +6,6 @@ using PetrolStationNetwork.Views.Pages;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Delivery = PetrolStationNetwork.Models.Delivery;
 using Supplier = PetrolStationNetwork.Models.Supplier;
 
@@ -112,6 +111,10 @@ namespace PetrolStationNetwork.ViewModels
 
         public bool Delete = false;
 
+        /// <summary>
+        /// Заполняем поля редактирования при выборе элемента в списке
+        /// </summary>
+        /// <param name="item">Выбранный элемент в списке</param>
         partial void OnSelectedItemChanged(Delivery item)
         {
             if (item == null) return;
@@ -121,6 +124,9 @@ namespace PetrolStationNetwork.ViewModels
             BthAddContent = "Изменить";
         }
 
+        /// <summary>
+        /// Метод для обновления записи, проверяет заполненность полей и принадлежность записи юзеру, если юзер поставщик
+        /// </summary>
         private void UpdateRecord()
         {
             // Проверяем что все поля заполнены

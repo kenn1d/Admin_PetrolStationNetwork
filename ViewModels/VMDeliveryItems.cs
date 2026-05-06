@@ -2,11 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using PetrolStationNetwork.Data;
-using PetrolStationNetwork.Models;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PetrolStationNetwork.ViewModels
 {
@@ -147,6 +145,10 @@ namespace PetrolStationNetwork.ViewModels
         // Переменная для проверки на удаление записи
         public bool Delete = false;
 
+        /// <summary>
+        /// Заполняем поля редактирования при выборе элемента в списке
+        /// </summary>
+        /// <param name="item">Выбранный элемент в списке</param>
         partial void OnSelectedItemChanged(Models.DeliveryItem item)
         {
             if (item == null) return;

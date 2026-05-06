@@ -12,9 +12,9 @@ namespace PetrolStationNetwork.Views.Pages
         {
             InitializeComponent();
             DataContext = new ViewModels.VMDelivery();
-            if (UserSession.Role == "Supplier") serialNumber.IsEnabled = true;
+            if (UserSession.Role == "Supplier") { bthAdd.IsEnabled = true; serialNumber.IsEnabled = true; }
             else if (UserSession.Role == "worker") status.IsEnabled = true;
-            else { status.IsEnabled = true; bthDelete.IsEnabled = true; }
+            else { status.IsEnabled = true; bthDelete.IsEnabled = true; bthAdd.IsEnabled = true; }
         }
     }
 }
