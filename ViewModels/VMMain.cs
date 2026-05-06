@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using PetrolStationNetwork.Data;
 using System.Windows.Input;
 
 namespace PetrolStationNetwork.ViewModels
@@ -19,6 +20,8 @@ namespace PetrolStationNetwork.ViewModels
         public ICommand Users { get; }
         public ICommand Suppliers { get; }
         public ICommand Staff { get; }
+
+        public ICommand Exit { get; }
 
         public VMMain(string userFIO)
         {
@@ -54,6 +57,10 @@ namespace PetrolStationNetwork.ViewModels
 
             Staff = new RelayCommand(() => {
                 MainWindow.init.frame.Navigate(new Views.Pages.Staff());
+            });
+
+            Exit = new RelayCommand(() => {
+                UserSession.DeleteSession();
             });
         }
     }

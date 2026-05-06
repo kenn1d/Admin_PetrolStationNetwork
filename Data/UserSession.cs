@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace PetrolStationNetwork.Data
 {
@@ -20,6 +20,15 @@ namespace PetrolStationNetwork.Data
             UserSession.Role = Role;
 
             MainWindow.init.frame.Navigate(new Views.Pages.Main(Full_name));
+        }
+
+        public static void DeleteSession()
+        {
+            Id = 0;
+            Full_name = null;
+            Tel_number = null;
+            Role = null;
+            MainWindow.init.frame.Navigate(new Views.Pages.Authorisation());
         }
     }
 }
