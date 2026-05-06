@@ -5,43 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PetrolStationNetwork.Views.Components"
              mc:Ignorable="d" >
-    <Grid Margin="10" Background="White" Width="700" Height="50">
+    <Grid Margin="5" Background="White" Height="50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="/Images/icon-black.png" Margin="5,5,5,5" Grid.Column="0" Stretch="Uniform"/>
+        <Image Source="/images/product.png" Grid.Column="0" Stretch="Uniform"/>
 
         <StackPanel Grid.Column="1" Margin="5,5,5,5">
-            <Label Content="Название"
+            <Label Content="Наименование"
    FontWeight="Bold"
-   FontSize="10"
+   FontSize="14"
    VerticalAlignment="Top"
    HorizontalAlignment="Left"
    Padding="0,2,0,0"/>
-            <TextBox Text="{Binding ProductName}"
-   FontSize="10"
+            <Label Content="{Binding Name}"
+   FontSize="14"
+                   Height="20"
    HorizontalAlignment="Left"
    FontStyle="Italic"
    Padding="0,0,0,2" Width="315" IsEnabled="False"/>
-        </StackPanel>
-
-        <StackPanel Grid.Column="5" Margin="5">
-            <Button Content="Изменить"
-    Command="{Binding OnUpdate}"
-    Height="19"
-    VerticalAlignment="Top"
-    Background="White"
-    BorderBrush="White" 
-    Foreground="#FF009CFF"/>
-            <Button Content="Удалить"
-    Command="{Binding OnDelete}"
-    Height="19"
-    Background="White"
-    BorderBrush="White" 
-    Foreground="Red"/>
         </StackPanel>
     </Grid>
 </UserControl>
