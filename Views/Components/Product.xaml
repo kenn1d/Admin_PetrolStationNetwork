@@ -22,10 +22,10 @@
    Padding="0,2,0,0"/>
             <Label Content="{Binding Name}"
    FontSize="14"
-                   Height="20"
+   Height="20"
    HorizontalAlignment="Left"
    FontStyle="Italic"
-   Padding="0,0,0,2" Width="315" IsEnabled="False"/>
+   Padding="0,0,0,2" IsEnabled="False"/>
         </StackPanel>
     </Grid>
 </UserControl>
