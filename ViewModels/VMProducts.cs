@@ -2,11 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using PetrolStationNetwork.Data;
-using PetrolStationNetwork.Views.Pages;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PetrolStationNetwork.ViewModels
 {

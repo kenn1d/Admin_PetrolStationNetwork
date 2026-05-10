@@ -14,6 +14,7 @@
     <None Remove="images\product.png" />
     <None Remove="images\sale.png" />
     <None Remove="images\supplier.jpg" />
+    <None Remove="images\user.png" />
     <None Remove="images\warehouse.png" />
     <None Remove="images\worker.png" />
   </ItemGroup>
@@ -30,6 +31,7 @@
     <Resource Include="images\product.png" />
     <Resource Include="images\sale.png" />
     <Resource Include="images\supplier.jpg" />
+    <Resource Include="images\user.png" />
     <Resource Include="images\warehouse.png" />
     <Resource Include="images\worker.png" />
   </ItemGroup>
